@@ -30,7 +30,7 @@ private:
     Form *new_Window;
 };
 #endif // WIDGET_H
-​```
+```
 
 登录界面头文件中需要包含主界面的类，并在头文件中声明***new_Window**
 
