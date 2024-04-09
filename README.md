@@ -40,6 +40,8 @@ private:
 一个QPushButton控件绑定点击事件与槽函数，若输入字符与匹配字符相同则隐藏登录界面显示主界面
 
 ```
+this->new_Window = new Form();//在头文件中声明在.cpp文件中创建主界面窗口
+
 void Widget::on_pushButton_login_clicked()
 {
     QString Name = ui->lineEdit_Name->text();
