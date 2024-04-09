@@ -31,10 +31,13 @@ private:
 };
 #endif // WIDGET_H
 ​```
+
 登录界面头文件中需要包含主界面的类，并在头文件中声明***new_Window**
+
 ### 登陆界面
 登录界面包含两个lineEdit控件用来匹配输入与设置的字符  
 一个QPushButton控件绑定点击事件与槽函数，若输入字符与匹配字符相同则隐藏登录界面显示主界面
+
 ```
 void Widget::on_pushButton_login_clicked()
 {
@@ -49,3 +52,4 @@ void Widget::on_pushButton_login_clicked()
     }
 }
 ```
+
