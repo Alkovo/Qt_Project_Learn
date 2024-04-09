@@ -49,5 +49,4 @@ void Widget::on_pushButton_login_clicked()
         QMessageBox::information(this,"输入有误","请确认账号密码是否正确");
     }
 }
-
 ···
