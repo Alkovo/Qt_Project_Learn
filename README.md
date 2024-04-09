@@ -90,8 +90,8 @@ void Widget::on_pushButton_login_clicked()
 }
 ```
 主界面发出**Back**信号，接收到信号后主界面隐藏，登陆界面显示。  
-用**connect**函数连接信号与槽，lanbda表达式形式的槽函数  
-第二个**connect**函数用于将**pushButton_Cancel**按钮控件的信号与关闭界面函数连接
+用**connect**函数连接信号与槽，lanbda表达式形式的槽函数接收到**Back**函数关闭主界面显示登陆界面  
+第二个**connect**函数用于将**pushButton_Cancel**按钮控件的**QPushButton::clicked**信号与关闭界面函数连接
 ```
     connect(this->new_Window,&Form::Back,this,[=](){
         new_Window->hide();
@@ -100,4 +100,32 @@ void Widget::on_pushButton_login_clicked()
     connect(ui->pushButton_Cancel,&QPushButton::clicked,this,[=](){
         close();
     });
+```
+### 主界面
+```
+#include "form.h"
+#include "ui_form.h"
+#include<QMessageBox>
+
+Form::Form(QWidget *parent)
+    : QWidget(parent)
+    , ui(new Ui::Form)
+{
+    ui->setupUi(this);
+    //connect(ui->pushButton_Back,SIGNAL(clicked(bool)),this,SIGNAL(Back()));
+
+}
+
+Form::~Form()
+{
+    delete ui;
+}
+
+void Form::on_pushButton_Back_clicked()
+{
+    QMessageBox::StandardButton result = QMessageBox::question(this, "确认退出", "是否确认退出", QMessageBox::No|QMessageBox::Yes,QMessageBox::No);
+    if (result == QMessageBox::Yes) {
+        emit Back();
+    }
+}
 ```
