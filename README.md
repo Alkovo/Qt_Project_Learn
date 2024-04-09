@@ -89,4 +89,15 @@ void Widget::on_pushButton_login_clicked()
     }
 }
 ```
-
+主界面发出**Back**信号，接收到信号后主界面隐藏，登陆界面显示。  
+用**connect**函数连接信号与槽，lanbda表达式形式的槽函数  
+第二个**connect**函数用于将**pushButton_Cancel**按钮控件的信号与关闭界面函数连接
+```
+    connect(this->new_Window,&Form::Back,this,[=](){
+        new_Window->hide();
+        this->show();
+    });
+    connect(ui->pushButton_Cancel,&QPushButton::clicked,this,[=](){
+        close();
+    });
+```
