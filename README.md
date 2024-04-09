@@ -102,7 +102,7 @@ void Widget::on_pushButton_login_clicked()
     });
 ```
 ### 主界面
-```
+```qt
 #include "form.h"
 #include "ui_form.h"
 #include<QMessageBox>
